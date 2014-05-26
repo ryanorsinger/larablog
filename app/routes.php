@@ -13,8 +13,8 @@
 
 Route::get('/', function()
 {
-	// return View::make('hello');
-    new Acme\Billing\Billing;
+	return View::make('hello');
+    // new Acme\Billing\Billing;
 });
 
 Route::group(['prefix' => 'api/v1'], function()
