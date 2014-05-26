@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::group(['prefix' => 'api/v1'], function()
+    {
+
+        Route::resource('lessons', 'LessonsController');
+
+    });
+

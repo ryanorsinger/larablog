@@ -1,5 +1,5 @@
 <?php
 
 class Lesson extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['title', 'body'];
 }
