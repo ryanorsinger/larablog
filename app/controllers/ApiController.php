@@ -1,4 +1,5 @@
 <?php
+use Acme\Transformers;
 
 class ApiController extends \BaseController {
 

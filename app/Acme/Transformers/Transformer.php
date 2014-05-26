@@ -1,7 +1,6 @@
-<?php
+<?php namespace Acme\Transformers;
 
-namespace Acme\Transformers;
-
+use Acme\Transformers\LessonTransformer;
 
 abstract class Transformer {
 
@@ -17,3 +16,5 @@ abstract class Transformer {
 
     public abstract function transform($item);
 }
+
+?>

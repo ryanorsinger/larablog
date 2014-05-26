@@ -1,6 +1,4 @@
-<?php
-
-namespace Acme\Transformers;
+<?php namespace Acme\Transformers;
 
 class LessonTransformer extends Transformer {
 
@@ -15,3 +13,5 @@ class LessonTransformer extends Transformer {
 
 
 }
+
+?>

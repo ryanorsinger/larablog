@@ -1,6 +1,8 @@
 <?php
 
+use Acme\Transformers;
 use Acme\Transformers\LessonTransformer;
+use Acme\Transformers\Transformer;
 
 class LessonsController extends ApiController {
 
@@ -13,6 +15,8 @@ class LessonsController extends ApiController {
 	function __construct(LessonTransformer $lessonTransformer)
 	{
 		$this->lessonTransformer = $lessonTransformer;
+
+		$this->beforeFilter('auth.basic', ['on' => 'post']);
 	}
 
 	/**
@@ -51,7 +55,7 @@ class LessonsController extends ApiController {
 		$lessons = Lesson::all();
 
 		return $this->respond([
-			'data' => $this->lessonTransformer->transformerCollection($lessons->all())
+			'data' => $this->lessonTransformer->transformCollection($lessons->toArray())
 		]);
 
 	}
@@ -75,7 +79,14 @@ class LessonsController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		if ( ! Input::get('title') or ! Input::get('body'))
+		{
+			// return some kind of response like 400, 403, 422 (422 is unprocessible entity)
+			// provide a message
+
+			return $this->setStatusCode(422)
+					->respondWithError('Parameters failed validation for a lesson');
+		}
 	}
 
 
@@ -98,7 +109,7 @@ class LessonsController extends ApiController {
 
 		/** Return found lesson id w/ http 200 */
 		return Response::json([
-			'data' => $this->lessonTransformer->transformCollection($lesson)
+			'data' => $this->lessonTransformer->transformCollection($lesson->toArray())
 			], 200);
 	}
 
@@ -137,6 +148,7 @@ class LessonsController extends ApiController {
 	{
 		//
 	}
+
 
 
 }
