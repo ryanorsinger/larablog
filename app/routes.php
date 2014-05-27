@@ -17,6 +17,10 @@ Route::get('/', function()
 
 });
 
+Route::get('/todos', function()
+{
+    return Todo::all();
+});
 
 
 Route::group(['prefix' => 'api/v1'], function()

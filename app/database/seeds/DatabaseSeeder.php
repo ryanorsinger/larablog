@@ -1,5 +1,8 @@
 <?php
 
+// Composer: "fzaninotto/faker": "v1.3.0"
+use Faker\Factory as Faker;
+
 class DatabaseSeeder extends Seeder {
 
     /**
@@ -9,12 +12,11 @@ class DatabaseSeeder extends Seeder {
     public function run()
     {
 
-        DB::table('lessons')->truncate();
+        DB::table('todo')->truncate();
 
         Eloquent::unguard();
 
-
-        $this->call('LessonsTableSeeder');
+        $this->call('TodosTableSeeder');
     }
 
 }
