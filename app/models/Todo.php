@@ -20,4 +20,9 @@ class Todo extends \Eloquent {
         'body'       => 'required|max:10000'
     ];
 
+    public function getCompletedAttribute($value)
+    {
+        return (boolean) $value;
+    }
+
 }
