@@ -58,8 +58,10 @@
 		<small ng-if="remaining()">({{ remaining() }} remaining)</small>
 
 	</h1>
+
+		<input type="test" placeholder "Filter todos" ng-model="searchTodos">
 		<ul>
-			<li ng-repeat="todo in todos">
+			<li ng-repeat="todo in todos | filter:searchTodos">
 			<input type="checkbox" ng-model="todo.completed">
 				{{ todo.body }}
 			</li>
