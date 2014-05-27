@@ -3,16 +3,6 @@
 /* Anything on Scope should be a Two Way Street thanks to two way data binding */
 
 function TodosController($scope, $http) {
-    // $scope.todos = [
-    //     { body: 'Go to the store', completed: false },
-    //     { body: 'Finish the video', completed: false},
-    //     { body: 'Remember to get up and stretch', completed: false },
-    //     { body: 'Go for a short walk', completed: false },
-    //     { body: 'Get some fresh air :D', completed: false },
-    //     { body: 'Publish some blog posts, yo!', completed: false }
-    // ];
-
-    // console.log($http);
 
     $http.get('/todos').success(function(todos) {
 
@@ -29,12 +19,18 @@ function TodosController($scope, $http) {
         return count;
     }
 
+    /*
+     *
+     */
     $scope.addTodo = function() {
-        $scope.todos.push({
+        var todo = {
             body: $scope.newTodoText,
             completed: false
-        });
+        };
+
+        $scope.todos.push(todo);
+
+        $http.post('todos', todo);
+
     };
-
-
 }

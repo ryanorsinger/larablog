@@ -13,10 +13,10 @@ class TodosTableSeeder extends Seeder {
         /* Make a faker object to use Faker to fake content */
 		$faker = Faker::create();
 
-		foreach(range(1, 25) as $index)
+		foreach(range(1, 5) as $index)
 		{
 			Todo::create([
-                'title' => $faker->sentence(5)
+                'body' => $faker->sentence(5)
                 ]);
 		}
 	}

@@ -17,18 +17,14 @@ Route::get('/', function()
 
 });
 
-Route::get('/todos', function()
+Route::get('todos', function()
 {
     return Todo::all();
 });
 
+Route::post('todos', function()
+{
+    return Todo::create(Input::all());
+});
 
-Route::group(['prefix' => 'api/v1'], function()
-    {
-
-        Route::resource('lessons', 'LessonsController');
-
-    });
-
-Route::resource('posts', 'PostsController');
 

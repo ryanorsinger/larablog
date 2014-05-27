@@ -63,7 +63,7 @@
 		<ul>
 			<li ng-repeat="todo in todos | filter:searchTodos">
 			<input type="checkbox" ng-model="todo.completed">
-				{{ todo.title }}
+				{{ todo.body }}
 			</li>
 		</ul>
 
