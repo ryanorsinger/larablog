@@ -1,10 +1,9 @@
 <!doctype html>
-<html ng-app="MyApp" lang="en">
+<html lang="en" ng-app>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 
 	<meta charset="UTF-8">
-	<title>Laravel PHP Framework</title>
+	<title>Angular + Laravel Experiment</title>
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
@@ -13,6 +12,12 @@
 			font-family:'Lato', sans-serif;
 			text-align:center;
 			color: #999;
+		}
+
+		.content {
+			text-align: left;
+			margin-left: 50px;
+			padding-left: 100px;
 		}
 
 		.welcome {
@@ -33,11 +38,36 @@
 			font-size: 32px;
 			margin: 16px 0 0 0;
 		}
+
+		small {
+			font-size: .8em;
+			color: gray;
+		}
+
 	</style>
 
-
 </head>
-<body>
-	<div class="main" ng-view></div>
+
+<body ng-controller="TodosController">
+	<h1>Howdy</h1>
+	<h2>Angular + Laravel Experiment</h2>
+	<hr>
+	<div class="content">
+	<h1>
+		Task List of "To Dos"
+		<small ng-if="remaining()">({{ remaining() }} remaining)</small>
+
+	</h1>
+		<ul>
+			<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.completed">
+				{{ todo.body }}
+			</li>
+		</ul>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+	<script src="/js/main.js"></script>
 </body>
 </html>
