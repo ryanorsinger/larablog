@@ -1,5 +1,7 @@
 
 /* scope is the glue between View and Controller */
+/* Anything on Scope should be a Two Way Street thanks to two way data binding */
+
 function TodosController($scope) {
     $scope.todos = [
         { body: 'Go to the store', completed: false },
@@ -19,4 +21,11 @@ function TodosController($scope) {
 
         return count;
     }
+
+    $scope.addTodo = function() {
+        $scope.todos.push({
+            body: $scope.newTodoText,
+            completed: false
+        });
+    };
 }

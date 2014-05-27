@@ -59,15 +59,19 @@
 
 	</h1>
 
-		<input type="test" placeholder "Filter todos" ng-model="searchTodos">
+		<input type="test" placeholder="Filter todos" ng-model="searchTodos">
 		<ul>
 			<li ng-repeat="todo in todos | filter:searchTodos">
 			<input type="checkbox" ng-model="todo.completed">
 				{{ todo.body }}
 			</li>
 		</ul>
-	</div>
 
+		<form ng-submit="addTodo()">
+			<input type="text" placeholder="Add new task" ng-model="newTodoText">
+			<button type="submit">Add Task</button>
+		</form>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 	<script src="/js/main.js"></script>
