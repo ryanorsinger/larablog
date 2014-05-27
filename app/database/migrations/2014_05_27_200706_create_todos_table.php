@@ -12,10 +12,9 @@ class CreateTodosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('todo', function(Blueprint $table) {
+		Schema::create('todos', function(Blueprint $table) {
 			$table->increments('id')->unsigned();
-			$table->string('title')->nullable();
-			$table->string('body', 1024)->nullable();
+			$table->string('title');
 			$table->boolean('completed')->default(0);
 			$table->timestamps();
 
@@ -30,7 +29,7 @@ class CreateTodosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('todo');
+		Schema::drop('todos');
 	}
 
 }

@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder {
     public function run()
     {
 
-        DB::table('todo')->truncate();
+        DB::table('todos')->truncate();
 
         Eloquent::unguard();
 
