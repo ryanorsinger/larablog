@@ -17,6 +17,12 @@ Route::get('/', function()
 
 });
 
+Route::get('/lynda', function()
+{
+    return View::make('lynda');
+
+});
+
 Route::get('todos', function()
 {
     return Todo::all();
